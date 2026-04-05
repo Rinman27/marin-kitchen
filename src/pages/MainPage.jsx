@@ -1,12 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { collection, onSnapshot, query, orderBy, deleteDoc, doc } from 'firebase/firestore'
 import { db } from '../firebase'
 import BottomNav from '../components/BottomNav'
 import RecipeCard from '../components/RecipeCard'
 
 export default function MainPage() {
-  const [tab, setTab] = useState('recipes') // 'recipes' | 'wanttotry'
+  const location = useLocation()
+  const tab = new URLSearchParams(location.search).get('tab') || 'recipes'
   const [recipes, setRecipes] = useState([])
   const [wantToTry, setWantToTry] = useState([])
   const [search, setSearch] = useState('')
@@ -99,7 +100,7 @@ export default function MainPage() {
           ].map(t => (
             <button
               key={t.key}
-              onClick={() => { setTab(t.key); setSearch('') }}
+              onClick={() => { navigate(`/?tab=${t.key}`); setSearch('') }}
               style={{
                 padding: '7px 16px',
                 borderRadius: '20px',
