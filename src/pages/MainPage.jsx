@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useMemo } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { collection, onSnapshot, query, orderBy, deleteDoc, doc } from 'firebase/firestore'
 import { db } from '../firebase'
@@ -7,7 +7,7 @@ import RecipeCard from '../components/RecipeCard'
 
 export default function MainPage() {
   const location = useLocation()
-  const tab = new URLSearchParams(location.search).get('tab') || 'recipes'
+  const tab = useMemo(() => new URLSearchParams(location.search).get('tab') || 'recipes', [location.search])
   const [recipes, setRecipes] = useState([])
   const [wantToTry, setWantToTry] = useState([])
   const [search, setSearch] = useState('')

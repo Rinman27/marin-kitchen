@@ -20,7 +20,7 @@ export default function AddWantToTryPage() {
         note: form.note.trim(),
         createdAt: serverTimestamp(),
       })
-      navigate('/')
+      navigate('/?tab=wanttotry')
     } catch (err) {
       console.error(err)
       setError('Something went wrong. Please try again.')
@@ -40,7 +40,7 @@ export default function AddWantToTryPage() {
         borderBottom: '1px solid var(--border)',
         flexShrink: 0,
       }}>
-        <button onClick={() => navigate(-1)} style={{ color: 'var(--text-secondary)', fontSize: '15px' }}>
+        <button onClick={() => navigate('/?tab=wanttotry')} style={{ color: 'var(--text-secondary)', fontSize: '15px' }}>
           Cancel
         </button>
         <span style={{ fontFamily: 'var(--font-display)', fontSize: '18px', color: 'var(--text-primary)' }}>
