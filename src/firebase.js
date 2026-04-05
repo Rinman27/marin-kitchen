@@ -1,7 +1,6 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
-import { getStorage } from 'firebase/storage'
 
 // Replace these values with your own Firebase project config
 // You will get these from Firebase Console > Project Settings > Your Apps
@@ -18,4 +17,8 @@ const app = initializeApp(firebaseConfig)
 
 export const auth = getAuth(app)
 export const db = getFirestore(app)
-export const storage = getStorage(app)
+
+// Cloudinary config — replace with your own values
+// You will get these from cloudinary.com > Settings > Upload > Upload presets
+export const CLOUDINARY_CLOUD_NAME = "YOUR_CLOUD_NAME"
+export const CLOUDINARY_UPLOAD_PRESET = "YOUR_UPLOAD_PRESET"

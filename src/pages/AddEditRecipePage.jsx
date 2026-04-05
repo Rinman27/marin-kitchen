@@ -3,8 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import {
   collection, addDoc, doc, getDoc, updateDoc, serverTimestamp
 } from 'firebase/firestore'
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
-import { db, storage } from '../firebase'
+import { db, CLOUDINARY_CLOUD_NAME, CLOUDINARY_UPLOAD_PRESET } from '../firebase'
 import StarRating from '../components/StarRating'
 
 const COMMON_TAGS = ['Italian', 'Mexican', 'Japanese', 'Indian', 'American', 'Thai', 'Chinese', 'French',
@@ -98,12 +97,18 @@ export default function AddEditRecipePage() {
     try {
       let photoURL = existingPhotoURL || null
 
-      // Upload photo if a new one was selected
+      // Upload photo to Cloudinary if a new one was selected
       if (photoFile) {
-        const filename = `recipes/${Date.now()}_${photoFile.name.replace(/[^a-zA-Z0-9._-]/g, '_')}`
-        const storageRef = ref(storage, filename)
-        await uploadBytes(storageRef, photoFile)
-        photoURL = await getDownloadURL(storageRef)
+        const formData = new FormData()
+        formData.append('file', photoFile)
+        formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET)
+        const res = await fetch(
+          `https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`,
+          { method: 'POST', body: formData }
+        )
+        if (!res.ok) throw new Error('Photo upload failed')
+        const data = await res.json()
+        photoURL = data.secure_url
       }
 
       const payload = {
