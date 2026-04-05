@@ -16,8 +16,13 @@ function AppRoutes() {
         height: '100%', display: 'flex', alignItems: 'center',
         justifyContent: 'center', background: 'var(--bg-base)'
       }}>
-        <div style={{ color: 'var(--accent)', fontFamily: 'var(--font-display)', fontSize: '22px' }}>
-          MaRin Kitchen
+        <div style={{ textAlign: 'center' }}>
+          <div style={{ color: 'var(--accent)', fontFamily: 'var(--font-display)', fontSize: '36px', fontStyle: 'italic', lineHeight: 1 }}>
+            MaRin
+          </div>
+          <div style={{ color: 'var(--accent)', fontFamily: 'var(--font-display)', fontSize: '10px', letterSpacing: '4px', opacity: 0.5, marginTop: '4px' }}>
+            KITCHEN
+          </div>
         </div>
       </div>
     )

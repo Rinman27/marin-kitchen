@@ -32,14 +32,27 @@ export default function LoginPage() {
       padding: '0 32px',
     }}>
       <div style={{ marginBottom: '48px', textAlign: 'center' }}>
-        <div style={{
-          fontFamily: 'var(--font-display)',
-          fontSize: '36px',
-          color: 'var(--accent)',
-          marginBottom: '8px',
-          letterSpacing: '-0.5px'
-        }}>
-          MaRin Kitchen
+        <div style={{ marginBottom: '8px' }}>
+          <div style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '42px',
+            fontStyle: 'italic',
+            color: 'var(--accent)',
+            letterSpacing: '-0.5px',
+            lineHeight: 1,
+          }}>
+            MaRin
+          </div>
+          <div style={{
+            fontFamily: 'var(--font-display)',
+            fontSize: '11px',
+            color: 'var(--accent)',
+            opacity: 0.5,
+            letterSpacing: '4px',
+            marginTop: '4px',
+          }}>
+            KITCHEN
+          </div>
         </div>
         <div style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>
           Our personal recipe journal

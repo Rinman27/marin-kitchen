@@ -66,13 +66,27 @@ export default function MainPage() {
           alignItems: 'center',
           marginBottom: '16px',
         }}>
-          <div style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: '28px',
-            color: 'var(--accent)',
-            letterSpacing: '-0.5px',
-          }}>
-            MaRin Kitchen
+          <div style={{ lineHeight: 1 }}>
+            <div style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '26px',
+              fontStyle: 'italic',
+              color: 'var(--accent)',
+              letterSpacing: '-0.5px',
+              lineHeight: 1,
+            }}>
+              MaRin
+            </div>
+            <div style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: '9px',
+              color: 'var(--accent)',
+              opacity: 0.5,
+              letterSpacing: '3px',
+              marginTop: '2px',
+            }}>
+              KITCHEN
+            </div>
           </div>
           <button
             onClick={() => navigate(tab === 'recipes' ? '/add' : '/add-want')}
