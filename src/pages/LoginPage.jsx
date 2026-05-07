@@ -14,7 +14,7 @@ export default function LoginPage() {
     setLoading(true)
     try {
       await signInWithEmailAndPassword(auth, email, password)
-    } catch (err) {
+    } catch {
       setError('Incorrect email or password.')
     } finally {
       setLoading(false)
@@ -29,45 +29,51 @@ export default function LoginPage() {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '0 32px',
+      padding: '0 36px',
     }}>
-      <div style={{ marginBottom: '48px', textAlign: 'center' }}>
-        <div style={{ marginBottom: '8px' }}>
-          <div style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: '42px',
-            fontStyle: 'italic',
-            color: 'var(--accent)',
-            letterSpacing: '-0.5px',
-            lineHeight: 1,
-          }}>
-            MaRin
-          </div>
-          <div style={{
-            fontFamily: 'var(--font-display)',
-            fontSize: '11px',
-            color: 'var(--accent)',
-            opacity: 0.5,
-            letterSpacing: '4px',
-            marginTop: '4px',
-          }}>
-            KITCHEN
-          </div>
+      {/* Logo */}
+      <div style={{ textAlign: 'center', marginBottom: '56px' }} className="page-enter">
+        <div style={{
+          fontFamily: 'var(--font-display)',
+          fontSize: '52px',
+          fontStyle: 'italic',
+          fontWeight: 300,
+          color: 'var(--accent)',
+          letterSpacing: '-1px',
+          lineHeight: 1,
+          marginBottom: '8px',
+        }}>
+          MaRin
         </div>
-        <div style={{ fontSize: '14px', color: 'var(--text-secondary)' }}>
-          Our personal recipe journal
+        <div style={{
+          width: '48px',
+          height: '0.5px',
+          background: 'var(--accent)',
+          opacity: 0.2,
+          margin: '0 auto 8px',
+        }} />
+        <div style={{
+          fontFamily: 'var(--font-body)',
+          fontSize: '9px',
+          color: 'var(--accent)',
+          opacity: 0.3,
+          letterSpacing: '5px',
+          fontWeight: 400,
+        }}>
+          KITCHEN
         </div>
       </div>
 
-      <form onSubmit={handleLogin} style={{ width: '100%', maxWidth: '320px' }}>
-        <div style={{ marginBottom: '12px' }}>
+      {/* Form */}
+      <form onSubmit={handleLogin} style={{ width: '100%', maxWidth: '300px' }} className="page-enter">
+        <div style={{ marginBottom: '10px' }}>
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={e => setEmail(e.target.value)}
             required
-            style={{ padding: '14px 16px', fontSize: '15px' }}
+            style={{ padding: '13px 16px', fontSize: '14px', letterSpacing: '0.2px' }}
           />
         </div>
         <div style={{ marginBottom: '20px' }}>
@@ -77,17 +83,12 @@ export default function LoginPage() {
             value={password}
             onChange={e => setPassword(e.target.value)}
             required
-            style={{ padding: '14px 16px', fontSize: '15px' }}
+            style={{ padding: '13px 16px', fontSize: '14px' }}
           />
         </div>
 
         {error && (
-          <div style={{
-            color: '#e07070',
-            fontSize: '13px',
-            marginBottom: '16px',
-            textAlign: 'center'
-          }}>
+          <div style={{ color: '#c47070', fontSize: '12px', marginBottom: '14px', textAlign: 'center', fontFamily: 'var(--font-body)' }}>
             {error}
           </div>
         )}
@@ -95,17 +96,18 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={loading}
+          className="tappable"
           style={{
             width: '100%',
-            padding: '14px',
+            padding: '13px',
             background: 'var(--accent)',
-            color: '#111',
-            border: 'none',
+            color: '#0c0c0c',
             borderRadius: 'var(--radius-sm)',
-            fontSize: '15px',
+            fontSize: '13px',
             fontWeight: '500',
-            opacity: loading ? 0.7 : 1,
-            transition: 'opacity 0.15s'
+            letterSpacing: '0.5px',
+            opacity: loading ? 0.6 : 1,
+            transition: 'opacity 0.15s',
           }}
         >
           {loading ? 'Signing in...' : 'Sign In'}

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <rect width="512" height="512" fill="#0f0f0f" rx="100"/>
-  <text x="256" y="290" text-anchor="middle" font-family="Georgia, serif" font-size="160" font-style="italic" fill="#e8d5b0" opacity="0.95">MaRin</text>
-  <line x1="60" y1="320" x2="452" y2="320" stroke="#e8d5b0" stroke-width="2" opacity="0.2"/>
-  <text x="256" y="370" text-anchor="middle" font-family="Georgia, serif" font-size="56" fill="#e8d5b0" opacity="0.5" letter-spacing="20">KITCHEN</text>
+  <rect width="512" height="512" fill="#0c0c0c" rx="114"/>
+  <text x="256" y="310" text-anchor="middle" font-family="Georgia, serif" font-size="170" font-style="italic" font-weight="300" fill="#e8d5b0" opacity="0.95">MaRin</text>
+  <line x1="80" y1="335" x2="432" y2="335" stroke="#e8d5b0" stroke-width="1.5" opacity="0.15"/>
+  <text x="256" y="380" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="48" fill="#e8d5b0" opacity="0.35" letter-spacing="22">KITCHEN</text>
 </svg>
